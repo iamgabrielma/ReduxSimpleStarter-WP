@@ -16,14 +16,14 @@ import React from 'react';
 const PostDetails = ({post}) => {
 
 	const url = 'https://www.osomstore.com/wp-json/wp/v2/posts/';
-	var thePost = {};
 	/* HTTP requests starts */
-	
+	var thePost = [];
 	function reqListener () {
 	  //console.log(this.responseText); //WORKS!
 		var thePost = JSON.parse(oReq.responseText)
-		//console.log(thePost[0]);
+		console.log(thePost); // array with 2 objects, one object for each post.
 		console.log(thePost[0].title.rendered);
+		console.log(post);
 	}
 
 	var oReq = new XMLHttpRequest();
@@ -41,6 +41,7 @@ const PostDetails = ({post}) => {
 			<p>Hello, this is the post WP-API url:</p>
 			<a href={url}>{url}</a>
 			<p>I'm fetching the post data into the console but not rendering on the site (╯°□°)╯︵ ┻━┻ </p>
+			<p>{}</p>
 			
 		</div>
 	);
